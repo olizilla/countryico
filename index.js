@@ -8,8 +8,12 @@ var fs = require('fs')
   ;
 
 var iso = _.object(_.map(f.split('\n'), function (line) { return line.split(';') }))
-  , riso = _.invert(iso)
-  ;
+
+// Additions
+iso['USA'] = 'us'
+iso['UK'] = 'gb'
+
+var riso = _.invert(iso)
 
 function country (str, url) {
   if (!url) url = 'https://raw.github.com/mikeal/countryico/master/images/'
